@@ -65,9 +65,14 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
         <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">
           {experience.name}
         </h3>
+        <div className='flex flex-col space-y-2'>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           01/2024 - 09/2024
         </p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
+          Titre RNCP Niveau 5
+        </p>
+        </div>
       </div>
     </motion.li>
   );
