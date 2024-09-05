@@ -44,7 +44,7 @@ const Projects = () => {
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="grid grid-cols-1 gap-4">
+      <ul className="grid grid-cols-1 gap-7">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}
