@@ -5,13 +5,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-  background-color: #ffffff; /* bg-white */
+  background-color: #f7f7f7; /* Couleur de fond claire */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), /* Quadrillage horizontal */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* Quadrillage vertical */
+  background-size: 150px 150px; /* Taille du quadrillage */
+  background-position: center; /* Place le dégradé circulaire au centre */
   color: #1a202c; /* text-gray-900 */
   font-family: 'Geist', sans-serif;
 }
 
 .dark body {
   background-color: #1a202c; /* bg-gray-900 */
+  background-image: 
+  linear-gradient(to right, rgba(239, 239, 239, 0.1) 1px, transparent 1px), /* Quadrillage horizontal */
+  linear-gradient(to bottom, rgba(245, 245, 245, 0.1) 1px, transparent 1px); /* Quadrillage vertical */
+background-size: 150px 150px; /* Taille du quadrillage */
+background-position: center; /* Place le dégradé circulaire au centre */
   color: #f7fafc; /* text-gray-100 */
 }
 

@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useLanguage } from "../Translate/LanguageContext";
 import Translations from "../Translate/Translations";
+import Photo from "../../assets/yann.jpg";
 
 const Presentation = () => {
   const { language } = useLanguage(); // Récupère la langue actuelle
@@ -29,7 +30,7 @@ const Presentation = () => {
       </div>
       {/* Animation de l'image */}
       <AnimatedImage
-        src="/src/assets/yann.jpg"
+        src={Photo}
         alt="Photo de Yann"
         className="w-48 h-60 rounded-full"
         initial={{ opacity: 0, scale: 0.8 }}

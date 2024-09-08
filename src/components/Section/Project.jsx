@@ -8,13 +8,27 @@ const Projects = () => {
     {
       id: 1,
       name: "Raymote.it",
+      url: "https://raymote-it-dev.fly.dev/", // Lien vers le projet
+      language: "Ruby On Rails",
       images: {
         light: "/src/assets/RAYM_logo.png",
-        dark: "/src/assets/RAYM-logo-white.png" // Assurez-vous d'avoir une image pour le mode sombre
+        dark: "/src/assets/RAYM_favicon.png"
       }
     },
-    { id: 2, name: "RAYM Cycling", image: "/path/to/image2.jpg" },
-    { id: 3, name: "Catisfaction", image: "/path/to/image3.jpg" },
+    {
+      id: 2,
+      name: "RAYM Cycling",
+      url: "https://raym-marketplace.onrender.com/", // Lien vers le projet
+      language: "React / Ruby",
+      image: "/src/assets/raymB.png"
+    },
+    {
+      id: 3,
+      name: "Catisfaction",
+      url: "https://catisfaction.com", // Lien vers le projet
+      language: "Ruby on Rails",
+      image: "/src/assets/Chaton.png"
+    },
   ];
 
   const cardVariants = {
@@ -40,7 +54,7 @@ const Projects = () => {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Projects
+        Projets
       </motion.h1>
 
       {/* Project Cards */}
@@ -50,7 +64,7 @@ const Projects = () => {
             key={project.id}
             project={project}
             variants={cardVariants}
-            isDarkMode={isDarkMode}  // Pass the dark mode state to the card component
+            isDarkMode={isDarkMode}
           />
         ))}
       </ul>
@@ -64,26 +78,37 @@ const AnimatedCard = ({ project, variants, isDarkMode }) => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <motion.li
-      ref={ref}
-      className="flex flex-row dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden"
-      variants={variants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      exit="exit"
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    <motion.a
+      href={project.url}  // Lien du projet
+      target="_blank"  // Ouvrir dans un nouvel onglet
+      rel="noopener noreferrer"  // Pour des raisons de sécurité
+      className="block"  // Permet à l'élément d'être entièrement cliquable
     >
-      <img
-        src={project.id === 1 ? (isDarkMode ? project.images.dark : project.images.light) : project.image}
-        alt={project.name}
-        className="w-1/3 h-24 object-cover"
-      />
-      <div className="p-4">
-        <h3 className="text-md font-bold text-gray-700 dark:text-gray-300">
-          {project.name}
-        </h3>
-      </div>
-    </motion.li>
+      <motion.li
+        ref={ref}
+        className="flex flex-row justify-between items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105"
+        variants={variants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        exit="exit"
+        whileHover={{ scale: 1.05 }}  // Animation on hover
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <img
+          src={project.id === 1 ? (isDarkMode ? project.images.dark : project.images.light) : project.image}
+          alt={project.name}
+          className="ml-2 w-36 h-auto"
+        />
+        <div className="p-4 flex flex-col">
+          <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">
+            {project.name}
+          </h3>
+          <p className='text-sm text-gray-500'>
+            {project.language}
+          </p>
+        </div>
+      </motion.li>
+    </motion.a>
   );
 };
 
