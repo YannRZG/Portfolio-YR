@@ -29,7 +29,7 @@ const Experience = () => {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Experience
+        Formation
       </motion.h1>
 
       {/* Experience Cards */}
