@@ -1,6 +1,9 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useDarkMode } from '../Darkmode/DarkmodeContext'; // Corrigez la casse ici
+import RaymLogo from '../Images/RaymoteIt.jsx';
+import RaymoteWhite from '../Images/RaymoteWhite.jsx';
+import RaymCycle from '/src/assets/raymB.png';
 
 const Projects = () => {
   const { isDarkMode } = useDarkMode(); // Récupère l'état du mode sombre
@@ -11,8 +14,8 @@ const Projects = () => {
       url: "https://raymote-it-dev.fly.dev/", // Lien vers le projet
       language: "Ruby On Rails",
       images: {
-        light: "/src/assets/RAYM_logo.png",
-        dark: "/src/assets/RAYM_favicon.png"
+        light: {RaymLogo},
+        dark: {RaymoteWhite}
       }
     },
     {
@@ -20,7 +23,7 @@ const Projects = () => {
       name: "RAYM Cycling",
       url: "https://raym-marketplace.onrender.com/", // Lien vers le projet
       language: "React / Ruby",
-      image: "/src/assets/raymB.png"
+      image: {RaymCycle}
     },
     {
       id: 3,
