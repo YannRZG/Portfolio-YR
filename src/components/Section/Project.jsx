@@ -62,7 +62,7 @@ const Projects = () => {
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="flex flex-row gap-7">
+      <ul className="flex flex-col md:flex-row lg:flex-row gap-7">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}
