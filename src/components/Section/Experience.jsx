@@ -27,7 +27,7 @@ const Experience = () => {
   return (
     <div className="flex flex-col space-y-8 max-w-5xl w-full mt-10" ref={ref}>
       <motion.h1
-        className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
+        className="text-3xl text-center md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -72,7 +72,7 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           01/2024 - 09/2024
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
+        <p className="text-sm text-center text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           Titre RNCP Niveau 5
         </p>

@@ -26,7 +26,7 @@ const Contact = () => {
   return (
     <div className="flex flex-col space-y-8 max-w-5xl w-5/6 mt-6" ref={ref}>
       <motion.h1
-        className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
+        className="text-3xl text-center md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={headingVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"} // Animate heading when in view

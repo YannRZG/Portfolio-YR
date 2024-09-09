@@ -8,7 +8,7 @@ const Presentation = () => {
   const { language } = useLanguage(); // Récupère la langue actuelle
 
   return (
-    <div className="w-full min-h-[55vh] flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0">
+    <div className="w-full min-h-[50vh] flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0">
       <div className="max-w-3xl flex flex-col items-start justify-center space-y-4 px-4 md:px-8">
         <AnimatedText
           className="text-start text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
