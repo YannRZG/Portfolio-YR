@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from "../Translate/LanguageContext";
 import Translations from "../Translate/Translations";
+import ThpLogo from '/src/assets/thpLogo.png';
 
 const Experience = () => {
   const { language } = useLanguage();
@@ -64,14 +65,14 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
       exit="exit"
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="p-4 flex flex-row space-x-4">
-        <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">
-          {experience.name}
-        </h3>
+      <div className=" flex flex-row space-x-4">
+        <img src={ThpLogo} alt="ThpLogo" className="w-48 h-24" />
+
         <div className='flex flex-col space-y-2'>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           01/2024 - 09/2024
         </p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           Titre RNCP Niveau 5
         </p>
