@@ -6,11 +6,7 @@
 
 body {
   background-color: #f7f7f7; /* Couleur de fond claire */
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), /* Quadrillage horizontal */
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* Quadrillage vertical */
-  background-size: 150px 150px; /* Taille du quadrillage */
-  background-position: center; /* Place le dégradé circulaire au centre */
+
   color: #1a202c; /* text-gray-900 */
   font-family: 'Geist', sans-serif;
 }

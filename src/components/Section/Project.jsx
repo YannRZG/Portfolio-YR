@@ -1,36 +1,37 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { useDarkMode } from '../Darkmode/DarkmodeContext'; // Corrigez la casse ici
-import RaymLogo from '../Images/RaymoteIt.jsx';
-import RaymoteWhite from '../Images/RaymoteWhite.jsx';
+import { useDarkMode } from '../Darkmode/DarkmodeContext';
+import { useLanguage } from "../Translate/LanguageContext";
+import Translations from "../Translate/Translations";
+import RaymLogo from '/src/assets/RAYM_favicon.png';
 import RaymCycle from '/src/assets/raymB.png';
+import Cat from '/src/assets/Chaton.png';
 
 const Projects = () => {
   const { isDarkMode } = useDarkMode(); // Récupère l'état du mode sombre
+  const { language } = useLanguage(); // Récupère la langue actuelle
   const projectList = [
     {
       id: 1,
       name: "Raymote.it",
       url: "https://raymote-it-dev.fly.dev/", // Lien vers le projet
       language: "Ruby On Rails",
-      images: {
-        light: {RaymLogo},
-        dark: {RaymoteWhite}
-      }
+      image: RaymLogo,
+
     },
     {
       id: 2,
       name: "RAYM Cycling",
       url: "https://raym-marketplace.onrender.com/", // Lien vers le projet
       language: "React / Ruby",
-      image: {RaymCycle}
+      image: RaymCycle
     },
     {
       id: 3,
       name: "Catisfaction",
       url: "https://catisfaction.com", // Lien vers le projet
       language: "Ruby on Rails",
-      image: "/src/assets/Chaton.png"
+      image: Cat
     },
   ];
 
@@ -49,19 +50,19 @@ const Projects = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <div ref={ref} className="flex flex-col space-y-8 max-w-xl w-full">
+    <div ref={ref} className="flex flex-col justify-center items-center space-y-8 w-full h-[40vh]">
       <motion.h1
         className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
       >
-        Projets
+        {Translations[language].projects}
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="grid grid-cols-1 gap-7">
+      <ul className="flex flex-row gap-7">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}
@@ -89,7 +90,7 @@ const AnimatedCard = ({ project, variants, isDarkMode }) => {
     >
       <motion.li
         ref={ref}
-        className="flex flex-row justify-between items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105"
+        className="flex flex-row justify-center items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105"
         variants={variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -98,7 +99,7 @@ const AnimatedCard = ({ project, variants, isDarkMode }) => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <img
-          src={project.id === 1 ? (isDarkMode ? project.images.dark : project.images.light) : project.image}
+          src={project.id === 1 ? (isDarkMode ? project.image : project.image) : project.image}
           alt={project.name}
           className="ml-2 w-36 h-auto"
         />

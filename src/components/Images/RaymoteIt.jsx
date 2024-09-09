@@ -1,4 +1,4 @@
-import RaymLogoImage from '/src/assets/RAYM_logo.png'; // Renommé l'import
+import RaymLogoImage from '/src/assets/RAYM_logo.png';
 
 const RaymLogo = () => {
     return (
