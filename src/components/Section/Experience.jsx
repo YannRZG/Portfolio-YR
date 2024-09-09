@@ -25,7 +25,7 @@ const Experience = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <div className="flex flex-col space-y-8 max-w-5xl w-full" ref={ref}>
+    <div className="flex flex-col space-y-8 max-w-5xl w-full mt-10" ref={ref}>
       <motion.h1
         className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}

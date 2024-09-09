@@ -50,7 +50,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <div ref={ref} className="flex flex-col items-center space-y-8 w-full h-[30vh]">
+    <div ref={ref} className="flex flex-col items-center space-y-8 w-full sm:h-[30vh] mt-8">
       <motion.h1
         className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}

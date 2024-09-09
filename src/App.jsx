@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <DarkModeProvider>
+        <DarkModeProvider>            
         <header>
           <Navbar />
         </header>
