@@ -1,7 +1,10 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useLanguage } from "../Translate/LanguageContext";
+import Translations from "../Translate/Translations";
 
 const Experience = () => {
+  const { language } = useLanguage();
   const experienceList = [
     { id: 1, name: "TheHackingProject", image: "/src/assets/thpLogo.png" },
   ];
@@ -29,7 +32,7 @@ const Experience = () => {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Formation
+        {Translations[language].formation}
       </motion.h1>
 
       {/* Experience Cards */}

@@ -5,6 +5,8 @@ import { LanguageProvider } from "./components/Translate/LanguageContext.jsx";
 import { DarkModeProvider } from "./components/Darkmode/DarkmodeContext.jsx";
 import Section from "./components/Section/Section.jsx";
 import Footer from "./components/footer.jsx";
+import Skills from "./components/Section/Skills.jsx";
+import Projects from "./components/Section/Project.jsx";
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
           <Navbar />
         </header>
 
-        <main className="p-4 mx-auto">
+        <main className="p-4 mx-auto ">
           <Presentation />
+          <Skills />
+          <Projects />
           <Section />
         </main>
 

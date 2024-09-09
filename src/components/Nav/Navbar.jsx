@@ -48,12 +48,13 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-
+          <div className='flex flex-row md:flex-row sm:flex-row items-center space-y-4 md:space-x-8 md:space-y-0'>
           {/* Composant DarkModeToggle */}
           <DarkModeToggle />
 
           {/* Language Toggle */}
           <LanguageToggle />
+          </div>
         </motion.div>
       </div>
     </motion.nav>
