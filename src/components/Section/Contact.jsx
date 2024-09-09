@@ -1,11 +1,12 @@
 import { motion, useInView } from "framer-motion";
-import { FaLinkedin, FaMailBulk } from "react-icons/fa";
+import { FaLinkedin, FaMailBulk, FaPhone } from "react-icons/fa";
 import { useRef } from "react";
 
 const Contact = () => {
   const contactList = [
     { id: 1, method: "Email", info: "yann@example.com", image: <FaMailBulk size={32} /> },
     { id: 3, method: "LinkedIn", info: "linkedin.com/in/yann", image: <FaLinkedin size={32} /> },
+    { id: 2, method: "Téléphone", info: "06.60.43.49.67", image: <FaPhone size={32} /> },
   ];
 
   const cardVariants = {
@@ -56,7 +57,7 @@ const AnimatedContactCard = ({ contact, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row justify-around"
+      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row justify-start"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Animate card when in view

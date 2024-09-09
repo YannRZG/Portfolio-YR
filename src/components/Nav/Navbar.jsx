@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaMailBulk } from "react-icons/fa";
 import DarkModeToggle from "../Darkmode/DarkmodeToggle"; // Assurez-vous d'ajuster ce chemin en fonction de votre structure de dossier
+import { useDarkMode } from "../Darkmode/DarkmodeContext"; // Gardez uniquement l'import nécessaire
 import LanguageToggle from "../Translate/LanguageToggle";
-// import { useState } from "react"; // Ajoutez l'import pour useState
 import YR from "/src/assets/YR_light_mode.png";
-// import YrLight from "/src/assets/YR_dark_mode.png";
+import YrLight from "/src/assets/YR_dark_mode.png";
 
 const Navbar = () => {
-  // const [isDarkMode, setIsDarkMode] = useState(false); // Utilisez useState pour gérer l'état du mode sombre
+  const { isDarkMode, toggleDarkMode } = useDarkMode(); // Utilisation correcte
 
   return (
     <motion.nav
@@ -24,7 +24,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }} // Arrive à sa position normale
           transition={{ duration: 1.2 }} // Durée de l'animation
         >
-          <img src={YR} alt="Logo de Yann Rezigui" />
+          <img src={isDarkMode ? YrLight : YR} alt="Logo de Yann Rezigui" />
         </motion.div>
 
         {/* Icônes et switch */}
@@ -62,7 +62,7 @@ const Navbar = () => {
           </ul>
           <div className="flex flex-row md:flex-row sm:flex-row items-center space-y-4 md:space-x-8 md:space-y-0">
             {/* Composant DarkModeToggle */}
-            <DarkModeToggle />
+            <DarkModeToggle onClick={toggleDarkMode} />
 
             {/* Language Toggle */}
             <LanguageToggle />
