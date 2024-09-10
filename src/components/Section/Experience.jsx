@@ -1,13 +1,16 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from "../Translate/LanguageContext";
+import { useDarkMode } from "../Darkmode/DarkmodeContext"; // Importer le contexte du mode sombre
 import Translations from "../Translate/Translations";
 import ThpLogo from '/src/assets/thpLogo.png';
+import ThpGray from '/src/assets/thp.png';
 
 const Experience = () => {
   const { language } = useLanguage();
+  const { isDarkMode } = useDarkMode(); // Récupère l'état du mode sombre
   const experienceList = [
-    { id: 1, name: "TheHackingProject", image: ThpLogo, url: "https://www.thehackingproject.org" }, // Ajout de l'URL
+    { id: 1, name: "TheHackingProject", image: isDarkMode ? ThpGray : ThpLogo, url: "https://www.thehackingproject.org" }, // Utilise l'image en fonction du mode
   ];
 
   const cardVariants = {
