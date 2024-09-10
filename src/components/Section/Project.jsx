@@ -50,19 +50,19 @@ const Projects = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <div ref={ref} className="flex flex-col items-center space-y-8 w-full sm:h-[30vh] mt-20">
+    <div ref={ref} className="flex flex-col items-center space-y-8 w-full ">
       <motion.h1
         className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {Translations[language].projects}
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="flex flex-col md:flex-row lg:flex-row gap-7">
+      <ul className="flex flex-col gap-7">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}

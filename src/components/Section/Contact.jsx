@@ -4,8 +4,8 @@ import { useRef } from "react";
 
 const Contact = () => {
   const contactList = [
-    { id: 1, method: "Email", info: "yann@example.com", image: <FaMailBulk size={32} /> },
-    { id: 3, method: "LinkedIn", info: "linkedin.com/in/yann", image: <FaLinkedin size={32} /> },
+    { id: 1, method: "Email", info: "yann.rezigui@gmail.com", image: <FaMailBulk size={32} />, link: "mailto:yann.rezigui@gmail.com" }, // Ajout du lien mailto
+    { id: 3, method: "LinkedIn", info: "https://www.linkedin.com/in/yann-rezigui-59b79a1b0/", image: <FaLinkedin size={32} />, link: "https://www.linkedin.com/in/yann-rezigui-59b79a1b0/" }, // Ajout du lien LinkedIn
     { id: 2, method: "Téléphone", info: "06.60.43.49.67", image: <FaPhone size={32} /> },
   ];
 
@@ -20,31 +20,30 @@ const Contact = () => {
     visible: { opacity: 1, x: 0 }, // Move to original position
   };
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
-
   return (
-    <div className="flex flex-col space-y-8 max-w-5xl w-5/6 mt-6" ref={ref}>
-      <motion.h1
-        className="text-3xl text-center md:text-4xl font-bold text-gray-700 dark:text-gray-300"
-        variants={headingVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"} // Animate heading when in view
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        Contact
-      </motion.h1>
+    <div className="flex flex-col items-center w-auto mt-12"> {/* Conteneur principal */}
+      <div className="flex flex-col items-center w-full max-w-md"> {/* Div imbriquée pour centrer horizontalement */}
+        <motion.h1
+          className="text-3xl text-center md:text-4xl font-bold text-gray-700 dark:text-gray-300"
+          variants={headingVariants}
+          initial="hidden"
+          animate="visible" // Animate heading when in view
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Contact
+        </motion.h1>
 
-      {/* Contact Cards */}
-      <ul className="grid grid-cols-1 gap-6">
-        {contactList.map((contact) => (
-          <AnimatedContactCard
-            key={contact.id}
-            contact={contact}
-            variants={cardVariants}
-          />
-        ))}
-      </ul>
+        {/* Contact Cards */}
+        <ul className="grid grid-cols-1 gap-6 w-full text-left"> {/* Justification à gauche */}
+          {contactList.map((contact) => (
+            <AnimatedContactCard
+              key={contact.id}
+              contact={contact}
+              variants={cardVariants}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
@@ -57,7 +56,7 @@ const AnimatedContactCard = ({ contact, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row justify-start"
+      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row justify-start w-full" // Justifié à gauche et occupe toute la largeur
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Animate card when in view
@@ -72,7 +71,13 @@ const AnimatedContactCard = ({ contact, variants }) => {
           {contact.method}
         </h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          {contact.info}
+          {contact.link ? ( // Vérifiez si un lien est présent
+            <a href={contact.link} className="text-blue-600 hover:underline">
+              {contact.info}
+            </a>
+          ) : (
+            contact.info
+          )}
         </p>
       </div>
     </motion.li>
