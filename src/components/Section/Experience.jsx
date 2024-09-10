@@ -7,7 +7,7 @@ import ThpLogo from '/src/assets/thpLogo.png';
 const Experience = () => {
   const { language } = useLanguage();
   const experienceList = [
-    { id: 1, name: "TheHackingProject", image: "/src/assets/thpLogo.png" },
+    { id: 1, name: "TheHackingProject", image: ThpLogo, url: "https://www.thehackingproject.org" }, // Ajout de l'URL
   ];
 
   const cardVariants = {
@@ -25,9 +25,9 @@ const Experience = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <div className="flex flex-col space-y-8 max-w-5xl w-full mt-10" ref={ref}>
+    <div className="flex flex-col space-y-8 w-full items-center justify-start" ref={ref}>
       <motion.h1
-        className="text-3xl text-center md:text-4xl font-bold text-gray-700 dark:text-gray-300"
+        className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-300"
         variants={h1Variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -58,25 +58,24 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-800 rounded-md overflow-hidden"
+      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}  // Animate in when in view, animate out when not in view
       exit="exit"
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className=" flex flex-row space-x-4">
-        <img src={ThpLogo} alt="ThpLogo" className="w-48 h-24" />
-
-        <div className='flex flex-col space-y-2'>
+      <a href={experience.url} target="_blank" rel="noopener noreferrer"> {/* Lien vers le site */}
+        <img src={experience.image} alt={experience.name} className="w-50 h-20" />
+      </a>
+      <div className='flex flex-col space-y-2 p-4'>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           01/2024 - 09/2024
         </p>
-        <p className="text-sm text-center text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
         <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
           Titre RNCP Niveau 5
         </p>
-        </div>
       </div>
     </motion.li>
   );
