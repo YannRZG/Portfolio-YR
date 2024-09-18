@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { FaNodeJs, FaGitAlt, FaGithub } from 'react-icons/fa';
 import { DiRuby } from 'react-icons/di';
-import { SiRubyonrails, SiJavascript, SiReact, SiPrisma, SiInsomnia } from 'react-icons/si';
+import { SiRubyonrails, SiJavascript, SiReact, SiPrisma, SiInsomnia, SiNextdotjs } from 'react-icons/si';
 import { BiLogoPostgresql } from "react-icons/bi";
 import { useLanguage } from "../Translate/LanguageContext";
 import Translations from "../Translate/Translations";
@@ -15,10 +15,11 @@ const Skills = () => {
         { icon: <SiJavascript className="text-4xl md:text-5xl lg:text-6xl text-yellow-500" />, name: "JavaScript" },
         { icon: <SiReact className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "React" },
         { icon: <FaNodeJs className="text-4xl md:text-5xl lg:text-6xl text-green-600" />, name: "Node.js" },
-        { icon: <BiLogoPostgresql className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "PostgreSQL" },
-        { icon: <SiPrisma className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "Prisma" },
+        { icon: <SiNextdotjs className="text-4xl md:text-5xl lg:text-6xl text-dark-600" />, name: "Next.js" },
         { icon: <FaGitAlt className="text-4xl md:text-5xl lg:text-6xl text-red-600" />, name: "Git" },
         { icon: <FaGithub className="text-4xl md:text-5xl lg:text-6xl text-black" />, name: "GitHub" },
+        { icon: <BiLogoPostgresql className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "PostgreSQL" },
+        { icon: <SiPrisma className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "Prisma" },
         { icon: <SiInsomnia className="text-4xl md:text-5xl lg:text-6xl text-purple-600" />, name: "Insomnia" },
     ];
 
@@ -37,7 +38,7 @@ const Skills = () => {
                 {Translations[language].skills}
             </AnimatedHeading>
 
-            <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-5 gap-6 justify-items-center">
+            <div className="flex flex-col sm:grid sm:grid-cols-6 md:flex-row lg:flex-row gap-6 justify-items-center">
                 {icons.map((item, index) => (
                     <motion.div
                         key={index}

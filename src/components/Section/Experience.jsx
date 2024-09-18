@@ -68,15 +68,15 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
       exit="exit"
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <a href={experience.url} target="_blank" rel="noopener noreferrer"> {/* Lien vers le site */}
-        <img src={experience.image} alt={experience.name} className="w-50 h-20" />
+      <a href={experience.url} target="_blank" rel="noopener noreferrer" className='flex items-center m-2'> {/* Lien vers le site */}
+        <img src={experience.image} alt={experience.name} className="w-50 h-8 sm:h-10 md:h-12 lg:h-14" />
       </a>
       <div className='flex flex-col space-y-2 p-4'>
-        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">
           01/2024 - 09/2024
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 m-auto">
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">
           Titre RNCP Niveau 5
         </p>
       </div>
