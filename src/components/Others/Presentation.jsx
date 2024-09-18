@@ -32,7 +32,7 @@ const Presentation = () => {
       <AnimatedImage
         src={Photo}
         alt="Photo de Yann"
-        className="w-48 h-48 rounded-full"
+        className="w-50 h-64 rounded-full"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}

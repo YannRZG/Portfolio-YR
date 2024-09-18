@@ -6,7 +6,7 @@ const Section = () => {
     <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 px-4">
 
       
-      <div className="flex flex-col sm:flex-row md:flex-row w-full mt-8">
+      <div className="flex flex-col gap-8 w-full mt-8">
 
         <Experience />
         <Project />
