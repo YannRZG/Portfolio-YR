@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { FaNodeJs, FaGitAlt, FaGithub } from 'react-icons/fa';
+import { FaNodeJs, FaGitAlt, FaGithub, FaDocker } from 'react-icons/fa';
 import { DiRuby } from 'react-icons/di';
 import { SiRubyonrails, SiJavascript, SiReact, SiPrisma, SiInsomnia, SiNextdotjs } from 'react-icons/si';
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -17,7 +17,8 @@ const Skills = () => {
         { icon: <FaNodeJs className="text-4xl md:text-5xl lg:text-6xl text-green-600" />, name: "Node.js" },
         { icon: <SiNextdotjs className="text-4xl md:text-5xl lg:text-6xl text-dark-600" />, name: "Next.js" },
         { icon: <FaGitAlt className="text-4xl md:text-5xl lg:text-6xl text-red-600" />, name: "Git" },
-        { icon: <FaGithub className="text-4xl md:text-5xl lg:text-6xl text-black" />, name: "GitHub" },
+        { icon: <FaGithub className="text-4xl md:text-5xl lg:text-6xl text-black dark:text-white" />, name: "GitHub" },
+        { icon: <FaDocker className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "Docker" },
         { icon: <BiLogoPostgresql className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "PostgreSQL" },
         { icon: <SiPrisma className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "Prisma" },
         { icon: <SiInsomnia className="text-4xl md:text-5xl lg:text-6xl text-purple-600" />, name: "Insomnia" },
@@ -38,13 +39,31 @@ const Skills = () => {
                 {Translations[language].skills}
             </AnimatedHeading>
 
-            <div className="flex flex-col sm:grid sm:grid-cols-6 md:flex-row lg:flex-row gap-6 justify-items-center">
+            <div className="hidden sm:flex sm:flex-row sm:justify-center sm:items-end sm:w-full sm:space-x-4">
                 {icons.map((item, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: -50 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation au scroll
-                        transition={{ duration: 0.8, delay: index * 0.1 }}
+                        transition={{ duration: 0.2 }}
+                        whileHover={{ scale: 1.4 }} // Fait grossir l'icône au survol
+                        className="flex flex-col items-center"
+                        style={{ transform: `translateY(${Math.sin((index / icons.length) * Math.PI) * 20}px)` }} // Positionne en arche
+                    >
+                        {item.icon}
+                        <span className="text-xs md:text-sm lg:text-base mt-1">{item.name}</span>
+                    </motion.div>
+                ))}
+            </div>
+
+            <div className="flex flex-col sm:hidden gap-4">
+                {icons.map((item, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation au scroll
+                        transition={{ duration: 0.2 }}
+                        whileHover={{ scale: 1.4 }} // Fait grossir l'icône au survol
                         className="flex flex-col items-center"
                     >
                         {item.icon}

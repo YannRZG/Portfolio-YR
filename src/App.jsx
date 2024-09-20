@@ -6,15 +6,17 @@ import { DarkModeProvider } from "./components/Darkmode/DarkmodeContext.jsx";
 import Section from "./components/Section/Section.jsx";
 import Footer from "./components/footer.jsx";
 import Skills from "./components/Section/Skills.jsx";
-// import Projects from "./components/Section/Project.jsx";
-// import Experience from "./components/Section/Experience.jsx";
 import Contact from "./components/Section/Contact.jsx";
+import StarsBackground from "./components/StarryBackground.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <DarkModeProvider>            
+        <DarkModeProvider>  
+        <div className="">
+          <StarsBackground />  
+          <div className="relative z-10">
         <header className="mx-auto p-4">
           <Navbar />
         </header>
@@ -22,15 +24,15 @@ function App() {
         <main className="p-4 overflow-x-hidden ">
           <Presentation />
           <Skills />
-          {/* <Projects /> */}
           <Section />
-          {/* <Experience /> */}
           <Contact />
         </main>
 
         <footer>
           <Footer />
         </footer>
+          </div>
+        </div>
         </DarkModeProvider>
       </LanguageProvider>
     </BrowserRouter>

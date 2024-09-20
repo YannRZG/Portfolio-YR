@@ -61,7 +61,7 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row"
+      className="dark:bg-gray-950 rounded-md overflow-hidden flex flex-row opacity-70"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}  // Animate in when in view, animate out when not in view

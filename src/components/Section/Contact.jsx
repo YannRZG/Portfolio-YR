@@ -34,7 +34,7 @@ const Contact = () => {
         </motion.h1>
 
         {/* Contact Cards */}
-        <ul className="grid grid-cols-1 gap-6 w-full text-left"> {/* Justification à gauche */}
+        <ul className="grid grid-cols-1 gap-6 w-full text-left opacity-70"> {/* Justification à gauche */}
           {contactList.map((contact) => (
             <AnimatedContactCard
               key={contact.id}
@@ -56,18 +56,18 @@ const AnimatedContactCard = ({ contact, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-800 rounded-md overflow-hidden flex flex-row justify-start w-full" // Justifié à gauche et occupe toute la largeur
+      className="dark:bg-gray-950 rounded-md overflow-hidden flex flex-row justify-start w-full " // Justifié à gauche et occupe toute la largeur
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Animate card when in view
       exit="exit"
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center m-4">
         {contact.image}
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">
+        <h3 className="text-lg font-bold text-gray-700 dark:text-white">
           {contact.method}
         </h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">

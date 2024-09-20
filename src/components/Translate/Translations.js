@@ -10,7 +10,7 @@ const Translations = {
     },
     fr: {
       greeting: "Bonjour, je suis Yann 👋",
-      description: "Je suis un développeur web fullstack fraîchement sorti de formation, passionné par la création d'applications web dynamiques et innovantes. Grâce à mes compétences avec des technologies comme JavaScript, React, Node.js, Ruby on Rails et bien d'autres, je suis prêt à relever de nouveaux défis dans le développement web. Toujours curieux et motivé, j'aime apprendre et améliorer mes compétences techniques tout en contribuant à des projets qui ont un impact réel. Vous pouvez consulter les projets concrets réalisés en cours de formation ci-dessous.",
+      description: "Je suis un développeur web fullstack fraîchement diplômé, passionné par la création d'applications web dynamiques et innovantes. Grâce à mes compétences avec des technologies comme JavaScript, React, Node.js, Ruby on Rails et bien d'autres, je suis prêt à relever de nouveaux défis dans le développement web. Toujours curieux et motivé, j'aime apprendre et améliorer mes compétences techniques tout en contribuant à des projets qui ont un impact réel. Vous pouvez consulter les projets concrets réalisés en cours de formation ci-dessous.",
       skills: "Compétences",
       projects: "Projets réalisés en formation",
       formation: "Formation",
