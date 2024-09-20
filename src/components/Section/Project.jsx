@@ -79,7 +79,7 @@ const Projects = () => {
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="flex flex-col gap-7">
+      <ul className="flex flex-col gap-7 opacity-90">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}
@@ -117,7 +117,7 @@ const AnimatedCard = ({ project, variants, isDarkMode, openModal }) => {
   return (
     <motion.li
       ref={ref}
-      className="flex flex-row justify-center items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
+      className="flex flex-row justify-center items-center bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-950 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -138,10 +138,10 @@ const AnimatedCard = ({ project, variants, isDarkMode, openModal }) => {
         className="ml-2 w-36 h-auto"
       />
       <div className="p-4 flex flex-col">
-        <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300">
+        <h3 className="text-lg font-bold text-gray-700 dark:text-gray-100">
           {project.name}
         </h3>
-        <p className="text-sm text-gray-500">{project.language}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-200">{project.language}</p>
       </div>
     </motion.li>
   );

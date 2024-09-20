@@ -15,7 +15,7 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }} // Arrive à sa position normale
       transition={{ duration: 1.5 }} // Durée de l'animation
     >
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+      <div className="container navbar mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         {/* Nom et logo */}
         <motion.div
           className="text-white text-lg font-bold"

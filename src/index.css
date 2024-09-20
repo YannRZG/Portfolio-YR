@@ -2,21 +2,93 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-  background-color: #f7f7f7; /* Couleur de fond claire */
-  color: #1a202c; /* text-gray-900 */
+  margin: 0; /* Supprime les marges par défaut */
+  background-color: #f7f7f7; /* Couleur de fond noire */
+  color: #000; /* Couleur de texte claire */
   font-family: 'Geist', sans-serif;
-
+  
 }
 
 .dark body {
-  background-color: #1a202c; /* bg-gray-900 */
-  color: #f7fafc; /* text-gray-100 */
+  background-color: #000; /* Couleur de fond noire */
+  color: #f7f7f7; /* Couleur de texte claire */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.stars {
+  position: fixed; /* Fixe les étoiles en arrière-plan */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* Permet aux clics de passer à travers */
+  z-index: -1; /* Assure que les étoiles sont derrière le contenu */
+}
+
+.star {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkling 1.5s infinite alternate;
+}
+
+@keyframes twinkling {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.shooting-star {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  width: 10px; 
+  height: 10px; 
+  box-shadow: 0 0 10px #fff; 
+  animation: shooting 2s linear infinite; 
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50vh) translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* Styles pour la voie lactée */
+.milky-way {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
+  opacity: 0.4; 
+  z-index: -1; 
+  filter: blur(40px); /* Effet de flou pour la voie lactée */
+  pointer-events: none;
+}
+
+/* Styles pour les planètes */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Effet lumineux */
+}
+
+/* Style pour le soleil */
+.sun {
+  position: absolute;
+  background-color: #FFD700; /* Couleur du soleil */
+  border-radius: 50%;
+  width: 24px; /* Taille du soleil */
+  height: 24px;
+  left: 50vw; /* Centré horizontalement */
+  top: 40vh; /* Position verticale */
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); /* Effet lumineux */
 }
