@@ -40,7 +40,7 @@ const Experience = () => {
       </motion.h1>
 
       {/* Experience Cards */}
-      <ul className="grid grid-cols-1 gap-6">
+      <ul className="grid grid-cols-1 gap-6 backdrop-blur-sm">
         {experienceList.map((experience) => (
           <AnimatedExperienceCard
             key={experience.id}
@@ -61,7 +61,7 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:border rounded-md overflow-hidden flex flex-row opacity-70"
+      className="dark:border rounded-md overflow-hidden flex flex-row"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}  // Animate in when in view, animate out when not in view

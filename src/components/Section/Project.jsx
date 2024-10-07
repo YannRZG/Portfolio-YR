@@ -79,7 +79,7 @@ const Projects = () => {
       </motion.h1>
 
       {/* Project Cards */}
-      <ul className="flex flex-col gap-7 opacity-90">
+      <ul className="flex flex-col gap-7 opacity-90 ">
         {projectList.map((project) => (
           <AnimatedCard
             key={project.id}
@@ -117,7 +117,7 @@ const AnimatedCard = ({ project, variants, isDarkMode, openModal }) => {
   return (
     <motion.li
       ref={ref}
-      className="flex flex-row justify-center items-center border dark:border-gray-200  rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
+      className="flex flex-row justify-center items-center border dark:border-gray-200 rounded-md shadow-lg h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer backdrop-blur-sm " // Ajout de l'effet de flou
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

@@ -45,7 +45,7 @@ const Skills = () => {
                         key={index}
                         initial={{ opacity: 0, y: -50 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }} // Animation inversée
-                        transition={{ duration: 0.2, delay: index * 0.1 }} // Délai pour chaque icône
+                        transition={{ duration: 0.2 }}
                         whileHover={{ scale: 1.4 }}
                         className="flex flex-col items-center"
                         style={{ transform: `translateY(${Math.sin((index / icons.length) * Math.PI) * 20}px)` }}
@@ -62,7 +62,7 @@ const Skills = () => {
                         key={index}
                         initial={{ opacity: 0, y: -50 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }} // Animation inversée
-                        transition={{ duration: 0.2, delay: index * 0.1 }} // Délai pour chaque icône
+                        transition={{ duration: 0.2 }} // Délai pour chaque icône
                         whileHover={{ scale: 1.4 }}
                         className="flex flex-col items-center"
                     >
