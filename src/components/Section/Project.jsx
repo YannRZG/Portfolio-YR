@@ -117,7 +117,7 @@ const AnimatedCard = ({ project, variants, isDarkMode, openModal }) => {
   return (
     <motion.li
       ref={ref}
-      className="flex flex-row justify-center items-center bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-950 rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
+      className="flex flex-row justify-center items-center border dark:border-gray-200  rounded-md shadow-lg overflow-hidden h-28 transform transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

@@ -61,7 +61,7 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="dark:bg-gray-950 rounded-md overflow-hidden flex flex-row opacity-70"
+      className="dark:border rounded-md overflow-hidden flex flex-row opacity-70"
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}  // Animate in when in view, animate out when not in view
@@ -72,11 +72,11 @@ const AnimatedExperienceCard = ({ experience, variants }) => {
         <img src={experience.image} alt={experience.name} className="w-50 h-8 sm:h-10 md:h-12 lg:h-14" />
       </a>
       <div className='flex flex-col space-y-2 p-4'>
-        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-300 m-auto">
           01/2024 - 09/2024
         </p>
-        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">Développeur Web Fullstack</p>
-        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 m-auto">
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-300 m-auto">Développeur Web Fullstack</p>
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-300 m-auto">
           Titre RNCP Niveau 5
         </p>
       </div>
