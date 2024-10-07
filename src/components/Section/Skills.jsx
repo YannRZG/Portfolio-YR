@@ -8,13 +8,13 @@ import Translations from "../Translate/Translations";
 import { useRef } from "react";
 
 const Skills = () => {
-    const { language } = useLanguage(); // Récupère la langue actuelle
+    const { language } = useLanguage();
     const icons = [
         { icon: <DiRuby className="text-4xl md:text-5xl lg:text-6xl text-red-600" />, name: "Ruby" },
         { icon: <SiRubyonrails className="text-4xl md:text-5xl lg:text-6xl text-red-600" />, name: "Rails" },
         { icon: <SiJavascript className="text-4xl md:text-5xl lg:text-6xl text-yellow-500" />, name: "JavaScript" },
-        { icon: <SiReact className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "React" },
         { icon: <FaNodeJs className="text-4xl md:text-5xl lg:text-6xl text-green-600" />, name: "Node.js" },
+        { icon: <SiReact className="text-4xl md:text-5xl lg:text-6xl text-blue-600" />, name: "React" },
         { icon: <SiNextdotjs className="text-4xl md:text-5xl lg:text-6xl text-dark-600" />, name: "Next.js" },
         { icon: <FaGitAlt className="text-4xl md:text-5xl lg:text-6xl text-red-600" />, name: "Git" },
         { icon: <FaGithub className="text-4xl md:text-5xl lg:text-6xl text-black dark:text-white" />, name: "GitHub" },
@@ -25,14 +25,14 @@ const Skills = () => {
     ];
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.3 }); // Détecte si le composant est visible
+    const isInView = useInView(ref, { once: false, amount: 0.3 });
 
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 50 }} // Commence avec une opacité de 0 et décalé vers le bas
-            animate={isInView ? { opacity: 1, y: 0 } : {}} // Finit avec une opacité de 1 et à sa position normale
-            transition={{ duration: 0.8 }} // Durée de l'animation
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
             className="flex flex-col items-center space-y-8 w-full h-auto mx-auto py-10 relative"
         >
             <AnimatedHeading>
@@ -44,11 +44,11 @@ const Skills = () => {
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: -50 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation au scroll
-                        transition={{ duration: 0.2 }}
-                        whileHover={{ scale: 1.4 }} // Fait grossir l'icône au survol
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }} // Animation inversée
+                        transition={{ duration: 0.2, delay: index * 0.1 }} // Délai pour chaque icône
+                        whileHover={{ scale: 1.4 }}
                         className="flex flex-col items-center"
-                        style={{ transform: `translateY(${Math.sin((index / icons.length) * Math.PI) * 20}px)` }} // Positionne en arche
+                        style={{ transform: `translateY(${Math.sin((index / icons.length) * Math.PI) * 20}px)` }}
                     >
                         {item.icon}
                         <span className="text-xs md:text-sm lg:text-base mt-1">{item.name}</span>
@@ -61,9 +61,9 @@ const Skills = () => {
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: -50 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation au scroll
-                        transition={{ duration: 0.2 }}
-                        whileHover={{ scale: 1.4 }} // Fait grossir l'icône au survol
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }} // Animation inversée
+                        transition={{ duration: 0.2, delay: index * 0.1 }} // Délai pour chaque icône
+                        whileHover={{ scale: 1.4 }}
                         className="flex flex-col items-center"
                     >
                         {item.icon}
@@ -75,7 +75,7 @@ const Skills = () => {
     );
 };
 
-// Component for animated heading
+// Composant pour le titre animé
 const AnimatedHeading = ({ children }) => {
     return (
         <motion.h1
