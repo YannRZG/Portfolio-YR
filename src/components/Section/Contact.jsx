@@ -83,7 +83,7 @@ const AnimatedContactCard = ({ contact, variants }) => {
   return (
     <motion.li
       ref={ref}
-      className="rounded-md overflow-hidden flex flex-row justify-start w-full shadow-md p-4 "
+      className="rounded-md overflow-hidden flex flex-row justify-start w-full  p-4 "
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -93,7 +93,7 @@ const AnimatedContactCard = ({ contact, variants }) => {
       <div className="flex items-center justify-center m-4">
         {contact.image}
       </div>
-      <div className="p-4">
+      <div className="p-4 flex flex-col justify-center">
         <h3 className="text-xl font-bold text-gray-950 dark:text-gray-100">
           {contact.method}
         </h3>
@@ -145,7 +145,7 @@ const AnimatedContactForm = ({ variants }) => {
       animate={isInView ? "visible" : "hidden"}
       exit="exit"
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="p-8 rounded-lg shadow-md "
+      className="p-8 rounded-lg shadow-lg light:bg-gray-100"
     >
       <h2 className="text-2xl font-semibold text-center text-gray-900 dark:text-gray-100 mb-6">
         Formulaire de Contact
@@ -156,7 +156,7 @@ const AnimatedContactForm = ({ variants }) => {
           <input
             type="text"
             name="user_name"
-            className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
+            className="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
             placeholder="Votre nom"
             required
           />
@@ -187,7 +187,7 @@ const AnimatedContactForm = ({ variants }) => {
         <div>
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 dark:bg-indigo-700 dark:hover:bg-indigo-800"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 dark:bg-blue-700 dark:hover:bg-blue-800"
           >
             Envoyer
           </button>

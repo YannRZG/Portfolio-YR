@@ -4,27 +4,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;700&display=swap');
 
 body {
-  margin: 0; /* Supprime les marges par défaut */
-  background-color: #f7f7f7; /* Couleur de fond noire */
-  color: #000; /* Couleur de texte claire */
+  margin: 0;
+  background-color: #f7f7f7;
+  color: #000;
   font-family: 'Geist', sans-serif;
-  
 }
 
 .dark body {
-  background-color: #000; /* Couleur de fond noire */
-  color: #f7f7f7; /* Couleur de texte claire */
+  background-color: #000;
+  color: #f7f7f7;
 }
 
 .stars {
-  position: fixed; /* Fixe les étoiles en arrière-plan */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  pointer-events: none; /* Permet aux clics de passer à travers */
-  z-index: -1; /* Assure que les étoiles sont derrière le contenu */
+  pointer-events: none;
+  z-index: -1;
 }
 
 .star {
@@ -43,10 +42,10 @@ body {
   position: absolute;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   border-radius: 50%;
-  width: 10px; 
-  height: 10px; 
-  box-shadow: 0 0 10px #fff; 
-  animation: shooting 2s linear infinite; 
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 10px #fff;
+  animation: shooting 2s linear infinite;
 }
 
 @keyframes shooting {
@@ -60,7 +59,6 @@ body {
   }
 }
 
-/* Styles pour la voie lactée */
 .milky-way {
   position: fixed;
   top: 0;
@@ -68,27 +66,65 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
-  opacity: 0.4; 
-  z-index: -1; 
-  filter: blur(40px); /* Effet de flou pour la voie lactée */
+  opacity: 0.4;
+  z-index: -1;
+  filter: blur(40px);
   pointer-events: none;
 }
 
-/* Styles pour les planètes */
+.solar-system {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* Taille ajustée */
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 600px; /* Perspective ajustée pour la proximité */
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: rotate infinite linear; /* Rotation continue */
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg); /* Inclinaison */
+}
+
+.orbit:nth-child(1) { animation-duration: 5s; width: 60px; height: 60px; }
+.orbit:nth-child(2) { animation-duration: 7s; width: 80px; height: 80px; }
+.orbit:nth-child(3) { animation-duration: 10s; width: 100px; height: 100px; }
+.orbit:nth-child(4) { animation-duration: 12s; width: 120px; height: 120px; }
+.orbit:nth-child(5) { animation-duration: 20s; width: 140px; height: 140px; }
+.orbit:nth-child(6) { animation-duration: 25s; width: 160px; height: 160px; }
+.orbit:nth-child(7) { animation-duration: 30s; width: 180px; height: 180px; }
+.orbit:nth-child(8) { animation-duration: 35s; width: 200px; height: 200px; }
+
+@keyframes rotate {
+  0% { transform: rotateX(60deg) rotate(0deg); }
+  100% { transform: rotateX(60deg) rotate(360deg); }
+}
+
 .planet {
   position: absolute;
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Effet lumineux */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px; /* Taille ajustée pour les planètes */
+  height: 30px;
 }
 
-/* Style pour le soleil */
 .sun {
   position: absolute;
-  background-color: #FFD700; /* Couleur du soleil */
+  background-color: #FFD700;
   border-radius: 50%;
-  width: 24px; /* Taille du soleil */
-  height: 24px;
-  left: 50vw; /* Centré horizontalement */
-  top: 40vh; /* Position verticale */
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); /* Effet lumineux */
+  width: 48px; /* Augmentation de la taille du soleil */
+  height: 48px;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
 }
